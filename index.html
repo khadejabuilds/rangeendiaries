@@ -1,64 +1,66 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>Rangeen Diaries</title>
-<script src="./vendor/react.js"></script>
-<script src="./vendor/react-dom.js"></script>
-<script src="./support.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rangeen Diaries</title>
+
+    <!-- Typography Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="design.css">
 </head>
+
 <body>
-<x-dc>
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
-<style>
-body{margin:0}
-a{text-decoration:none}
-a:hover{opacity:.88}
-</style>
-</helmet>
-<div style="display: flex; flex-direction: column; min-height: 640px; background: #F3F6FC; font-family: 'Figtree', system-ui, sans-serif; color: #4F1F4D">
+    <div class="page-wrapper">
+        <header class="navbar">
+            <a href="#top" class="brand-logo">Rangeen Diaries</a>
+            <nav class="nav-links">
+                <a href="#shop" class="nav-link">Shop</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#journal" class="nav-link">Journal</a>
+            </nav>
+        </header>
 
-<header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding: 18px 40px; background: #4F1F4D">
-<a href="#top" style="font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 26px; color: #EFDB8C">Rangeen Diaries</a>
-<nav style="display: flex; flex-wrap: wrap; gap: 8px 28px">
-<a href="#shop" style="font-weight: 600; font-size: 17px; color: #C8D8F3">Shop</a>
-<a href="#gallery" style="font-weight: 600; font-size: 17px; color: #C8D8F3">Gallery</a>
-<a href="#journal" style="font-weight: 600; font-size: 17px; color: #C8D8F3">Journal</a>
-</nav>
-</header>
+        <section id="top" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Decor pieces where life smiles back.</h1>
+                <p class="hero-description">Mehndi thaals, backdrops and details for your celebration in Multan.</p>
+                <a href="https://wa.me/" class="cta-button">Order on WhatsApp</a>
+            </div>
+            <div aria-hidden="true" class="hero-bars">
+                <div class="bar bar-green"></div>
+                <div class="bar bar-magenta"></div>
+                <div class="bar bar-blue"></div>
+                <div class="bar bar-yellow"></div>
+                <div class="bar bar-purple"></div>
+            </div>
+        </section>
 
-<section id="top" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 0 32px; padding: 0 56px 0 56px; flex-grow: 1">
-<div style="flex: 1 1 380px; max-width: 560px; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; padding: 56px 0">
-<h1 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 800; font-size: 56px; line-height: 1.1; color: #4F1F4D">Decor pieces where life smiles back.</h1>
-<p style="margin: 0; font-size: 20px; line-height: 1.7; color: #6B4A6B; max-width: 440px">Mehndi thaals, backdrops and details for your celebration in Multan.</p>
-<a href="https://wa.me/" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 28px; border-radius: 999px; background: #A82E50; color: #FFFFFF; font-weight: 700; font-size: 18px">Order on WhatsApp</a>
-</div>
-<div aria-hidden="true" style="flex: 1 1 340px; display: flex; align-items: flex-end; justify-content: center; gap: 12px; height: 360px">
-<div style="width: 44px; height: 210px; background: #AEBF9A; border-radius: 22px 22px 0 0"></div>
-<div style="width: 44px; height: 300px; background: #A82E50; border-radius: 22px 22px 0 0"></div>
-<div style="width: 44px; height: 245px; background: #C8D8F3; border-radius: 22px 22px 0 0"></div>
-<div style="width: 44px; height: 345px; background: #EFDB8C; border-radius: 22px 22px 0 0"></div>
-<div style="width: 44px; height: 225px; background: #4F1F4D; border-radius: 22px 22px 0 0"></div>
-</div>
-</section>
+        <section id="shop" class="shop-grid">
+            <a href="#baby-shower" class="shop-card shop-card-blue">Baby shower</a>
+            <a href="#mehndi" class="shop-card shop-card-green">Mehndi</a>
+            <a href="#wedding" class="shop-card shop-card-purple">Wedding</a>
+            <a href="#birthday" class="shop-card shop-card-yellow">Birthday</a>
+        </section>
 
-<section id="shop" style="display: flex; flex-wrap: wrap">
-<a href="#baby-shower" style="flex: 1 1 200px; box-sizing: border-box; padding: 24px 20px 28px; min-height: 96px; background: #C8D8F3; color: #4F1F4D; font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 24px; line-height: 1.2">Baby shower</a>
-<a href="#mehndi" style="flex: 1 1 200px; box-sizing: border-box; padding: 24px 20px 28px; min-height: 96px; background: #AEBF9A; color: #4F1F4D; font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 24px; line-height: 1.2">Mehndi</a>
-<a href="#wedding" style="flex: 1 1 200px; box-sizing: border-box; padding: 24px 20px 28px; min-height: 96px; background: #4F1F4D; color: #EFDB8C; font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 24px; line-height: 1.2">Wedding</a>
-<a href="#birthday" style="flex: 1 1 200px; box-sizing: border-box; padding: 24px 20px 28px; min-height: 96px; background: #EFDB8C; color: #4F1F4D; font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 24px; line-height: 1.2">Birthday</a>
-</section>
+        <div class="section-separator" aria-hidden="true">
+            <svg id="kashiSeparator" viewBox="0 0 1200 40" preserveAspectRatio="xMidYMid slice" height="40px"></svg>
+        </div>
 
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":640}}'>
-class Component extends DCLogic {
-renderVals() {
-return {};
-}
-}
-</script>
+        <div class="section-separator" aria-hidden="true">
+            <svg id="marigoldSeparator" viewBox="0 0 1200 60" preserveAspectRatio="xMidYMid slice" height="60px"></svg>
+        </div>
+
+    </div>
+
+    <!-- Dynamic SVG Renderer -->
+    <script src="script.js"></script>
 </body>
+
 </html>

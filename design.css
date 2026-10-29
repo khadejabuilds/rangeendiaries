@@ -1,0 +1,257 @@
+:root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    --pista: #afc29c;
+    --anaar: #a92f50;
+    --aasman: #c5d7f2;
+    --haldi: #edda8c;
+    --jamun: #4f204d;
+    --zari: #b48952;
+    --paper: #f3f6fb;
+    --surface: #ffffff;
+    --ink: #4f204d;
+    --ink-soft: #67456a;
+    --line: rgba(79, 32, 77, .22);
+    --accent-text: #a92f50;
+    --focus: #a92f50;
+    --sel-bg: #4f204d;
+    --sel-fg: #edda8c;
+    --shadow: rgba(79, 32, 77, .38);
+    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --sans: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --hand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
+    --urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Noto Naskh Arabic", serif;
+}
+
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
+}
+
+a {
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.88;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 640px;
+}
+
+/* Header & Navigation */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding: 18px 40px;
+    background: var(--jamun);
+}
+
+.brand-logo {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--haldi);
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+}
+
+.nav-link {
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--aasman);
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0 32px;
+    padding: 0 56px;
+    flex-grow: 1;
+}
+
+.hero-content {
+    flex: 1 1 380px;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 56px 0;
+}
+
+.hero-title {
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 1.1;
+    color: var(--ink);
+}
+
+.hero-description {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 440px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 28px;
+    border-radius: 999px;
+    background: var(--anaar);
+    color: var(--surface);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Decorative Bars */
+.hero-bars {
+    flex: 1 1 340px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 12px;
+    height: 360px;
+}
+
+.bar {
+    width: 44px;
+    border-radius: 22px 22px 0 0;
+}
+
+.bar-green {
+    height: 210px;
+    background: var(--pista);
+}
+
+.bar-magenta {
+    height: 300px;
+    background: var(--anaar);
+}
+
+.bar-blue {
+    height: 245px;
+    background: var(--aasman);
+}
+
+.bar-yellow {
+    height: 345px;
+    background: var(--haldi);
+}
+
+.bar-purple {
+    height: 225px;
+    background: var(--jamun);
+}
+
+/* Shop Grid */
+.shop-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shop-card {
+    flex: 1 1 200px;
+    box-sizing: border-box;
+    padding: 24px 20px 28px;
+    min-height: 96px;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.shop-card-blue {
+    background: var(--aasman);
+    color: var(--ink);
+}
+
+.shop-card-green {
+    background: var(--pista);
+    color: var(--ink);
+}
+
+.shop-card-purple {
+    background: var(--jamun);
+    color: var(--haldi);
+}
+
+.shop-card-yellow {
+    background: var(--haldi);
+    color: var(--ink);
+}
+
+/* Motif Figures */
+.motif-fig svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    box-shadow: 0 18px 30px -22px var(--shadow);
+}
+
+.motif-fig figcaption {
+    margin-top: 10px;
+    font-size: .92rem;
+    color: var(--ink-soft);
+    line-height: 1.4;
+}
+
+.motif-fig figcaption b {
+    display: block;
+    color: var(--ink);
+    font: 700 1.15rem/1.2 var(--serif);
+    font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .navbar {
+        padding: 16px 20px;
+    }
+
+    .hero-section {
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 38px;
+    }
+}
+
+.section-separator {
+    width: 100%;
+    margin: 32px 0;
+    overflow: hidden;
+}
+
+
+.section-separator svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}

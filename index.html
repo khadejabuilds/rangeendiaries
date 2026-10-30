@@ -17,15 +17,30 @@
 </head>
 
 <body>
-    <div class="splash-container">
-        <!-- Centered Spring Animated Title -->
-        <h1 class="splash-brand" id="animatedTitle">Rangeen Diaries</h1>
-        <p class="splash-subtitle">Decor pieces where life smiles back. Mehndi thaals, backdrops and details for your celebration in Multan.</p>
-        
-        <a href="https://wa.me/" class="cta-button">Order on WhatsApp</a>
+    <div class="page-wrapper">
+        <!-- Top Marigold Garland Slider with Hanging Nav Blocks -->
+        <div class="marquee-separator top-garland" aria-label="Navigation Garland">
+            <div class="marquee-track" id="topNavGarlandTrack">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </div>
+
+        <!-- Center Front-Stage Splash Hero -->
+        <main class="splash-container">
+            <h1 class="splash-brand" id="animatedTitle">Rangeen Diaries</h1>
+            <p class="splash-subtitle">Decor pieces where life smiles back. Mehndi thaals, backdrops and details for your celebration in Multan.</p>
+            <a href="https://wa.me/" class="cta-button">Order on WhatsApp</a>
+        </main>
+
+        <!-- Bottom Marigold Garland Slider -->
+        <div class="marquee-separator bottom-garland" aria-hidden="true">
+            <div class="marquee-track" id="bottomGarlandTrack">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </div>
     </div>
 
-    <!-- Dynamic Marquees & Animation Script -->
+    <!-- Script for Marquees & Text Animation -->
     <script src="script.js"></script>
 </body>
 

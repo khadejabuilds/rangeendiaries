@@ -134,3 +134,99 @@ document.addEventListener('DOMContentLoaded', function () {
     }).join('');
   }
 });
+
+// Function to render a marigold garland segment (SVG)
+function createMarigoldSegmentSvg() {
+  let svg = `<svg class="garland-svg" viewBox="0 0 220 60" preserveAspectRatio="none">
+    <!-- Hanging Garland Thread Curve -->
+    <path d="M0 20 Q110 45 220 20" fill="none" stroke="var(--zari)" stroke-width="3" />`;
+
+  // Draw 5 detailed marigold flowers along the curve
+  for (let x = 20; x <= 200; x += 45) {
+    let yOffset = 20 + Math.sin((x / 220) * Math.PI) * 18;
+    svg += `<g transform="translate(${x}, ${yOffset})">`;
+    // Outer Haldi Petals
+    for (let i = 0; i < 8; i++) {
+      svg += `<ellipse cx="0" cy="0" rx="6" ry="16" fill="var(--haldi)" transform="rotate(${i * 45})" />`;
+    }
+    // Inner Zari Petals
+    for (let i = 0; i < 8; i++) {
+      svg += `<ellipse cx="0" cy="0" rx="4" ry="11" fill="var(--zari)" transform="rotate(${i * 45 + 22.5})" />`;
+    }
+    // Core
+    svg += `<circle cx="0" cy="0" r="7" fill="var(--anaar)" />`;
+    svg += `<circle cx="0" cy="0" r="3" fill="var(--haldi)" />`;
+    svg += `</g>`;
+  }
+
+  svg += `</svg>`;
+  return svg;
+}
+
+// Render Top Garland Slider with Hanging Nav Blocks
+function initTopNavGarland() {
+  const track = document.getElementById('topNavGarlandTrack');
+  if (!track) return;
+
+  const navItems = [
+    { label: 'Shop', href: '#shop', style: 'card-gold' },
+    { label: 'Gallery', href: '#gallery', style: '' },
+    { label: 'Journal', href: '#journal', style: 'card-alt' },
+    { label: 'Order Now', href: 'https://wa.me/', style: '' },
+  ];
+
+  let garlandSegment = createMarigoldSegmentSvg();
+  let trackHtml = '';
+
+  // Generate a sequence of garland units containing hanging nav items
+  for (let i = 0; i < 8; i++) {
+    const item = navItems[i % navItems.length];
+    trackHtml += `
+      <div class="garland-unit">
+        ${garlandSegment}
+        <a href="${item.href}" class="hanging-block">
+          <div class="hanging-string"></div>
+          <div class="hanging-card ${item.style}">${item.label}</div>
+        </a>
+      </div>
+    `;
+  }
+
+  // Double the sequence for seamless infinite scrolling loop
+  track.innerHTML = trackHtml + trackHtml;
+}
+
+// Render Bottom Marigold Garland Slider
+function initBottomGarland() {
+  const track = document.getElementById('bottomGarlandTrack');
+  if (!track) return;
+
+  let garlandSegment = createMarigoldSegmentSvg();
+  let trackHtml = '';
+
+  for (let i = 0; i < 8; i++) {
+    trackHtml += `<div class="garland-unit">${garlandSegment}</div>`;
+  }
+
+  track.innerHTML = trackHtml + trackHtml;
+}
+
+// Spring Text Animation for "Rangeen Diaries"
+function initTitleAnimation() {
+  const titleEl = document.getElementById('animatedTitle');
+  if (!titleEl) return;
+
+  const text = titleEl.textContent;
+  const words = text.split(' ');
+
+  const colors = ['var(--jamun)', 'var(--anaar)'];
+  titleEl.innerHTML = words.map((word, i) => {
+    return `<span class="animated-word" style="animation-delay: ${i * 0.18}s; color: ${colors[i % colors.length]};">${word} </span>`;
+  }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  initTitleAnimation();
+  initTopNavGarland();
+  initBottomGarland();
+});

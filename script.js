@@ -20,8 +20,50 @@ function kashi(id, petal, dot) {
   );
 }
 
+// Infinite Kashi Tile Slider Generator
+function initKashiSlider() {
+  const track = document.getElementById('kashiSliderTrack');
+  if (!track) return;
+
+  let tileHtml = `<svg class="marquee-item" viewBox="0 0 120 40" preserveAspectRatio="none" role="img" aria-label="Kashi tile separator">
+    <defs>${kashi('kSlide', 'var(--jamun)', 'var(--anaar)')}</defs>
+    <rect width="120" height="40" fill="var(--aasman)"/>
+    <rect width="120" height="40" style="fill:url(#kSlide)"/>
+  </svg>`;
+
+  let repeated = tileHtml.repeat(15);
+  track.innerHTML = repeated + repeated; // Doubled for smooth infinite loop
+}
+
+// Infinite Marigold Garland Slider Generator (With your preferred design!)
+function initMarigoldSlider() {
+  const track = document.getElementById('marigoldSliderTrack');
+  if (!track) return;
+
+  let marigoldSvg = `<svg class="marquee-item-marigold" viewBox="0 0 120 50" preserveAspectRatio="none" role="img" aria-label="Marigold garland separator">
+    <path d="M0 20 Q30 40 60 20 T120 20" fill="none" stroke="var(--zari)" stroke-width="3" />`;
+
+  for (let x = 20; x <= 100; x += 30) {
+    let yOffset = 20 + Math.sin(x / 50) * 4;
+    marigoldSvg += `<g transform="translate(${x}, ${yOffset})">`;
+    for (let i = 0; i < 8; i++) {
+      marigoldSvg += `<ellipse cx="0" cy="0" rx="6" ry="16" fill="var(--haldi)" transform="rotate(${i * 45})" />`;
+    }
+    for (let i = 0; i < 8; i++) {
+      marigoldSvg += `<ellipse cx="0" cy="0" rx="4" ry="11" fill="var(--zari)" transform="rotate(${i * 45 + 22.5})" />`;
+    }
+    marigoldSvg += '<circle cx="0" cy="0" r="7" fill="var(--anaar)" />';
+    marigoldSvg += '<circle cx="0" cy="0" r="3" fill="var(--haldi)" />';
+    marigoldSvg += `</g>`;
+  }
+  marigoldSvg += `</svg>`;
+
+  let repeated = marigoldSvg.repeat(15);
+  track.innerHTML = repeated + repeated; // Doubled for smooth infinite loop
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-  // Render m1 (Kashi Tile) using CSS variables
+  // Render m1 (Kashi Tile)
   const m1 = document.getElementById('m1');
   if (m1) {
     m1.innerHTML =
@@ -30,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '<rect width="120" height="120" style="fill:url(#pk1)"/>';
   }
 
-  // Render m2 (Radial Flower Motif) using CSS variables
+  // Render m2 (Radial Flower Motif)
   const m2 = document.getElementById('m2');
   if (m2) {
     let s = '<rect width="120" height="120" fill="var(--anaar)"/>';
@@ -44,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
     m2.innerHTML = s;
   }
 
-  // Render m3 (Banner Ribbon Motif) using CSS variables
+  // Render m3 (Banner Ribbon Motif)
   const m3 = document.getElementById('m3');
   if (m3) {
     m3.innerHTML =
@@ -53,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '<path d="M20 98 Q60 124 100 98" fill="none" stroke="var(--jamun)" stroke-width="6" stroke-linecap="round"/>';
   }
 
-  // Render m4 (Dear Diary Tape Motif) using CSS variables
+  // Render m4 (Dear Diary Tape Motif)
   const m4 = document.getElementById('m4');
   if (m4) {
     m4.innerHTML =
@@ -70,62 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '<text x="60" y="88" text-anchor="middle" font-family="var(--hand)" font-weight="600" font-size="17" fill="var(--anaar)">today was loud</text>';
   }
 
-  // Optional moodSvg rendering if element exists
-  const moodSvg = document.getElementById('moodSvg');
-  if (moodSvg) {
-    moodSvg.innerHTML =
-      '<defs>' + kashi('pm', 'var(--aasman)', 'var(--haldi)') + '</defs>' +
-      '<rect width="400" height="80" style="fill:url(#pm)"/><rect y="86" width="400" height="4" style="fill:var(--haldi)"/>' +
-      '<rect y="440" width="400" height="40" style="fill:url(#pm)"/><rect y="432" width="400" height="4" style="fill:var(--haldi)"/>';
-  }
-});
-
-const kashiSeparator = document.getElementById('kashiSeparator');
-if (kashiSeparator) {
-  kashiSeparator.innerHTML = 
-    '<defs>' + kashi('horizontalTile', 'var(--jamun)', 'var(--anaar)') + '</defs>' +
-    '<rect width="1200" height="40" fill="var(--aasman)"/>' +
-    '<rect width="1200" height="40" style="fill:url(#horizontalTile)"/>';
-}
-
-function renderMarigoldSeparator(elementId) {
-  const el = document.getElementById(elementId);
-  if (!el) return;
-
-  // Set explicit viewBox matching our design
-  el.setAttribute('viewBox', '0 0 1200 60');
-
-  let svgContent = '';
-
-  // Background strip (optional, can be removed if you want it transparent)
-  svgContent += '<rect width="1200" height="60" fill="var(--paper)" />';
-  
-  // Hanging garland thread
-  svgContent += '<path d="M0 20 Q300 40 600 20 T1200 20" fill="none" stroke="var(--zari)" stroke-width="3" />';
-
-  // Loop and place textured marigold flowers directly
-  for (let x = 30; x < 1230; x += 55) {
-    let yOffset = 22 + Math.sin(x / 50) * 8; // Gentle hanging wave
-    
-    svgContent += `<g transform="translate(${x}, ${yOffset})">`;
-    // Outer petals
-    for (let i = 0; i < 8; i++) {
-      svgContent += `<ellipse cx="0" cy="0" rx="6" ry="16" fill="var(--haldi)" transform="rotate(${i * 45})" />`;
-    }
-    // Inner petals
-    for (let i = 0; i < 8; i++) {
-      svgContent += `<ellipse cx="0" cy="0" rx="4" ry="11" fill="var(--zari)" transform="rotate(${i * 45 + 22.5})" />`;
-    }
-    // Center core
-    svgContent += '<circle cx="0" cy="0" r="7" fill="var(--anaar)" />';
-    svgContent += '<circle cx="0" cy="0" r="3" fill="var(--haldi)" />';
-    svgContent += `</g>`;
-  }
-
-  el.innerHTML = svgContent;
-}
-
-// Call it when the page loads
-document.addEventListener('DOMContentLoaded', function () {
-  renderMarigoldSeparator('marigoldSeparator');
+  // Initialize Infinite Sliders
+  initKashiSlider();
+  initMarigoldSlider();
 });

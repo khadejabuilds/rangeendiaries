@@ -116,3 +116,21 @@ document.addEventListener('DOMContentLoaded', function () {
   initKashiSlider();
   initMarigoldSlider();
 });
+
+// Spring Text Animation Effect for the Title
+document.addEventListener('DOMContentLoaded', function () {
+  const titleEl = document.getElementById('animatedTitle');
+  if (titleEl) {
+    const text = titleEl.textContent;
+    const words = text.split(' ');
+    
+    // Clear and rebuild with staggered spans
+    titleEl.innerHTML = words.map((word, wordIndex) => {
+      // Add random festive colors on load if desired
+      const randomColors = ['var(--jamun)', 'var(--anaar)', 'var(--haldi)', 'var(--zari)'];
+      const color = randomColors[wordIndex % randomColors.length];
+      
+      return `<span class="animated-word" style="animation-delay: ${wordIndex * 0.15}s; color: ${color};">${word} </span>`;
+    }).join('');
+  }
+});
